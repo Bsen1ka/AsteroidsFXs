@@ -1,0 +1,4 @@
+--patch-module
+dk.sdu.cbse.common=_
+--add-reads
+dk.sdu.cbse.common=ALL-UNNAMED
