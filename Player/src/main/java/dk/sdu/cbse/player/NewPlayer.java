@@ -19,6 +19,7 @@ public class NewPlayer implements IGameService {
         playerShip.setPolygonCoordinates(-5,-5,10,0,-5,5);
         playerShip.setX((double) gameData.getDisplayHeight() /2);
         playerShip.setY((double) gameData.getDisplayWidth() /2);
+        playerShip.setData("type", "player");
         return playerShip;
     }
     @Override

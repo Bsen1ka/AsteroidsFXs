@@ -20,6 +20,7 @@ public class NewEnemy implements IGameService {
         enemyShip.setX((double) gameData.getDisplayWidth() / 4);
         enemyShip.setY((double) gameData.getDisplayHeight() / 4);
         enemyShip.setRadius(8);
+        enemyShip.setData("type", "enemy");
         return enemyShip;
     }
     @Override

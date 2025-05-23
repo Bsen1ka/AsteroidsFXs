@@ -1,0 +1,4 @@
+--patch-module
+dk.sdu.cbse.asteroids.NewAsteroids=_
+--add-reads
+dk.sdu.cbse.asteroids.NewAsteroids=ALL-UNNAMED

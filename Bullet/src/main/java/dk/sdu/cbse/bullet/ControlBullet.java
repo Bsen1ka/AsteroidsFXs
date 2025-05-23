@@ -21,6 +21,7 @@ public class ControlBullet implements IEntityService, BulletSPI {
         bullet.setY(entity.getY() + changeY * 10);
         bullet.setRotation(entity.getRotation());
         bullet.setRadius(1);
+        bullet.setData("type", "bullet");
         return bullet;
     }
 

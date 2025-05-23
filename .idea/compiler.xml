@@ -8,10 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Bullet" />
         <module name="Player" />
+        <module name="Asteroids" />
+        <module name="Enemy" />
+        <module name="Collision" />
+        <module name="CommonAsteroids" />
         <module name="CommonBullet" />
         <module name="Common" />
         <module name="Core" />
-        <module name="Enemy" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
