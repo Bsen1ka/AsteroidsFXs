@@ -32,7 +32,7 @@ public class PlayerControl implements IEntityService {
                 playerShip.setX(playerShip.getX() + changeX);
                 playerShip.setY(playerShip.getY() + changeY);
             }
-            if (gameData.getKeys().isPressed(GameKeys.SPACE)){
+            if (gameData.getKeys().isDown(GameKeys.SPACE)){
                 getBulletSPIs().stream().findFirst().ifPresent(
                         spi -> {world.addEntity(spi.createBullet(playerShip, gameData));}
                 );

@@ -50,8 +50,14 @@ public class AsteroidsControl implements IEntityService {
             smallAsteroid.setY(asteroid.getY() + Math.random() * 10 - 5);
             smallAsteroid.setRotation(Math.random() * 360);
             smallAsteroid.setRadius(asteroid.getRadius() -10);
-            smallAsteroid.setPolygonCoordinates(10, 0, 4, 4, 0, 10,
-                    -4, 4, -10, 0, -4, -4, 0, -10, 4, -4);
+            if(asteroid.getLife() == 8){
+                smallAsteroid.setPolygonCoordinates(14, 0, 8, 8, 0, 14,
+                        -8, 8, -14, 0, -8, -8, 0, -14, 8, -8);
+            }else {
+                smallAsteroid.setPolygonCoordinates(10, 0, 4, 4, 0, 10,
+                        -4, 4, -10, 0, -4, -4, 0, -10, 4, -4);
+            }
+
             smallAsteroid.setData("type", "asteroid");
             smallAsteroid.setData("size", size - 1);
             smallAsteroid.setLife(asteroid.getLife() - 1);
