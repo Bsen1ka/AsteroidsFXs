@@ -21,6 +21,7 @@ public class ControlBullet implements IEntityService, BulletSPI {
         bullet.setY(entity.getY() + changeY * 10);
         bullet.setRotation(entity.getRotation());
         bullet.setRadius(1);
+        bullet.setLife(1);
         bullet.setData("type", "bullet");
         return bullet;
     }
@@ -44,7 +45,9 @@ public class ControlBullet implements IEntityService, BulletSPI {
             if (entity.getY() > gameData.getDisplayHeight() + 100){
                 world.removeEntity(entity);
             }
-
+            if(entity.getLife() <= 0){
+                world.removeEntity(entity);
+            }
         }
 
     }

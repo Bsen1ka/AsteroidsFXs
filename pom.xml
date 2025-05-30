@@ -17,9 +17,8 @@
     <module>Bullet</module>
     <module>Enemy</module>
     <module>CommonBullet</module>
-      <module>Asteroids</module>
+    <module>Asteroids</module>
     <module>Collision</module>
-      <module>CommonAsteroids</module>
   </modules>
 
   <properties>

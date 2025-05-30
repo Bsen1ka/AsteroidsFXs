@@ -1,5 +1,6 @@
 package dk.sdu.cbse.common.data;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -12,7 +13,7 @@ public class Entity {
     private double y;
     private double rotation;
     private float radius;
-    private int life = 3;
+    private int life;
 
     private final Map<String, Object> data = new HashMap<>();
 
@@ -68,8 +69,11 @@ public class Entity {
     public float getRadius() {
         return this.radius;
     }
-
-     // default 3 hits to die
+    public double getWidth(){
+        double[] coordinates = getPolygonCoordinates();
+        Double max = Arrays.stream(coordinates).max().orElse(-1);
+        return max*2;
+    }
 
     public int getLife() {
         return life;

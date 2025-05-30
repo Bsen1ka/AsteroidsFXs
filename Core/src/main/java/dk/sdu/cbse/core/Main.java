@@ -82,7 +82,6 @@ public class Main extends Application {
         window.setTitle("ASTEROIDS");
         window.show();
     }
-
     private void render() {
         new AnimationTimer() {
             @Override

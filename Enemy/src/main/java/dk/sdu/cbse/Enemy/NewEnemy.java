@@ -16,11 +16,12 @@ public class NewEnemy implements IGameService {
 
     private Entity createEnemy(GameData gameData) {
         Entity enemyShip = new Enemy();
-        enemyShip.setPolygonCoordinates(-10,-10,10,0,-10,10);
+        enemyShip.setPolygonCoordinates(-8,-8,8,0,-8,8);
         enemyShip.setX((double) gameData.getDisplayWidth() / 4);
         enemyShip.setY((double) gameData.getDisplayHeight() / 4);
         enemyShip.setRadius(8);
         enemyShip.setData("type", "enemy");
+        enemyShip.setLife(3);
         return enemyShip;
     }
     @Override

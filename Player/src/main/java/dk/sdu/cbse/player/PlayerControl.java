@@ -32,7 +32,7 @@ public class PlayerControl implements IEntityService {
                 playerShip.setX(playerShip.getX() + changeX);
                 playerShip.setY(playerShip.getY() + changeY);
             }
-            if (gameData.getKeys().isDown(GameKeys.SPACE)){
+            if (gameData.getKeys().isPressed(GameKeys.SPACE)){
                 getBulletSPIs().stream().findFirst().ifPresent(
                         spi -> {world.addEntity(spi.createBullet(playerShip, gameData));}
                 );
@@ -49,6 +49,9 @@ public class PlayerControl implements IEntityService {
             }
             if (playerShip.getY() > gameData.getDisplayHeight()){
                 playerShip.setY(gameData.getDisplayHeight());
+            }
+            if (playerShip.getLife() <= 0){
+                world.removeEntity(playerShip);
             }
         }
     }

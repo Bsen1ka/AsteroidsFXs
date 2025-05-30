@@ -20,6 +20,7 @@ public class NewPlayer implements IGameService {
         playerShip.setX((double) gameData.getDisplayHeight() /2);
         playerShip.setY((double) gameData.getDisplayWidth() /2);
         playerShip.setData("type", "player");
+        playerShip.setLife(3);
         return playerShip;
     }
     @Override

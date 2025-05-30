@@ -52,6 +52,9 @@ public class EnemyControl implements IEntityService {
             if (enemy.getY() > gameData.getDisplayHeight()) {
                 enemy.setY(gameData.getDisplayHeight() - 1);
             }
+            if(enemy.getLife() <= 0 ){
+                world.removeEntity(enemy);
+            }
         }
     }
 
