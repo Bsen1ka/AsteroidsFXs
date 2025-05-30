@@ -9,7 +9,12 @@ import dk.sdu.cbse.common.services.IEntityService;
 import dk.sdu.cbse.common.services.IGameService;
 import dk.sdu.cbse.common.services.IPostService;
 
+import java.lang.module.Configuration;
+import java.lang.module.ModuleFinder;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.ServiceLoader;
 import java.util.concurrent.ConcurrentHashMap;
@@ -23,13 +28,40 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.lang.module.ModuleReference;
+import java.lang.module.ModuleDescriptor;
+import java.util.stream.Collectors;
+
 public class Main extends Application {
     private final GameData gameData = new GameData();
     private final World world = new World();
     private final Map<Entity, Polygon> polygons = new ConcurrentHashMap<>();
     private final Pane gameWindow = new Pane();
+    private static ModuleLayer layer;
 
     public static void main(String[] args) {
+        Path pluginsDir = Paths.get("plugins");
+
+
+        ModuleFinder pluginsFinder = ModuleFinder.of(pluginsDir);
+
+
+        List<String> plugins = pluginsFinder
+                .findAll()
+                .stream()
+                .map(ModuleReference::descriptor)
+                .map(ModuleDescriptor::name)
+                .collect(Collectors.toList());
+
+        Configuration pluginsConfiguration = ModuleLayer
+                .boot()
+                .configuration()
+                .resolve(pluginsFinder, ModuleFinder.of(), plugins);
+
+        layer = ModuleLayer
+                .boot()
+                .defineModulesWithOneLoader(pluginsConfiguration, ClassLoader.getSystemClassLoader());
+
         launch(Main.class);
     }
 

@@ -13,6 +13,10 @@ public class Collision implements IPostService {
         for (Entity e1 : world.getEntities()) {
             for (Entity e2 : world.getEntities()) {
                 if (isCollision(e1, e2) && e1.getClass() != e2.getClass()) {
+                    System.out.println(e1.getClass());
+                    System.out.println(e2.getClass());
+                    System.out.println(e1.getLife());
+                    System.out.println(e2.getLife());
                     e1.decreaseLife(1);
                 }
             }
