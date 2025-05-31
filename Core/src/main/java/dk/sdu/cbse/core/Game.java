@@ -12,8 +12,10 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Polygon;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -26,12 +28,21 @@ public class Game {
     private final List<IGameService> gameServices;
     private final List<IEntityService> entityServiceList;
     private final List<IPostService> postEntityServices;
+    private final List<Text> labelNodes = new ArrayList<>();
 
 
     Game(List<IGameService> gameServices, List<IEntityService> entityServiceList, List<IPostService> postEntityServices) {
         this.gameServices = gameServices;
         this.entityServiceList = entityServiceList;
         this.postEntityServices = postEntityServices;
+    }
+
+    private List<Text> addLabels(List<String> labels){
+       List<Text> texts = new ArrayList<>();
+       for (int i = 0; i < labels.size(); i++){
+           texts.add(new Text(10, 20 + i * 20, labels.get(i)));
+       }
+       return texts;
     }
 
     public void start(Stage window) throws Exception {
@@ -101,7 +112,13 @@ public class Game {
         for (IPostService postEntityProcessorService : getPostEntityProcessingServices()) {
             postEntityProcessorService.process(gameData, world);
         }
+
+        gameWindow.getChildren().removeAll(labelNodes);
+        labelNodes.clear();
+        labelNodes.addAll(addLabels(gameData.getLabels()));
+        gameWindow.getChildren().addAll(labelNodes);
     }
+
 
     private void draw() {
         for (Entity polygonEntity : polygons.keySet()) {

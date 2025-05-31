@@ -14,6 +14,7 @@
         <module name="CommonBullet" />
         <module name="Common" />
         <module name="Core" />
+        <module name="ScoringSystem" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -27,6 +28,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Commen-backend" options="-parameters" />
       <module name="Commen-frontend" options="-parameters" />
+      <module name="ScoringSystem" options="-parameters" />
     </option>
   </component>
 </project>
