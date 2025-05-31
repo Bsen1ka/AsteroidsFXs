@@ -7,5 +7,4 @@ module dk.sdu.cbse.asteroids.NewAsteroids {
     requires dk.sdu.cbse.common;
     provides IGameService with NewAsteroids;
     provides IEntityService with AsteroidsControl;
-
 }
