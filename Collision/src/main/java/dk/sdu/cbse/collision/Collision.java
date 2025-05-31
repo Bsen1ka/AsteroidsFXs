@@ -12,7 +12,7 @@ public class Collision implements IPostService {
     public void process(GameData gameData, World world) {
         for (Entity e1 : world.getEntities()) {
             for (Entity e2 : world.getEntities()) {
-                if (isCollision(e1, e2) && e1.getClass() != e2.getClass()) {
+                if (isColliding(e1, e2) && e1.getClass() != e2.getClass()) {
                     e1.decreaseLife(1);
                 }
             }
@@ -21,7 +21,7 @@ public class Collision implements IPostService {
     }
 
 
-    public boolean isCollision(Entity e1, Entity e2) {
+    public boolean isColliding(Entity e1, Entity e2) {
         double x1 = e1.getX();
         double y1 = e1.getY();
 
